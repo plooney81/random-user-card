@@ -1,1 +1,25 @@
+.App{
+  background-color: rgb(44, 46, 49);
+  height: 200px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.Card_Container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  background-color: white;
+  width: 50%;
+}
+
+.User_img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}

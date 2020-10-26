@@ -18,12 +18,13 @@ class UserCard extends Component {
         this.getNewUser();
     }
 
-    getNewUser = () => {
-        fetch("https://randomuser.me/api/?results=1")
+    getNewUser = async () => {
+        await fetch("https://randomuser.me/api/?results=1")
             .then(res => res.json())
             .then(data => {
+                // console.log(data.results[0].location.street)
                 this.setState({
-                    image: data.results[0].picture.thumbnail,
+                    image: data.results[0].picture.large,
                     name: data.results[0].name,
                     email: data.results[0].email,
                     dob: data.results[0].dob,
@@ -35,7 +36,38 @@ class UserCard extends Component {
     }
 
     render(){
-       return <h1>Hello</h1>
+       return(
+           <div>
+                <div className="UserCard">
+                    <img src={this.state.image} alt="user" className="User_img"/>
+                </div>
+                <div className="first Info">
+                    <p>Hello, my name is:</p>
+                    <p>{this.state.name.first} {this.state.name.last}</p>
+                </div>
+                <div className="second Info">
+                    <p>My email is:</p>
+                    <p>{this.state.email}</p>
+                </div>
+                <div className="third Info">
+                    <p>My birthday is:</p>
+                    <p>{this.state.dob.date}</p>
+                </div>
+                <div className="fourth Info">
+                    <p>My address is:</p>
+                    <p>{this.state.address.number} {this.state.address.name}</p>
+                </div>
+                <div className="fifth Info">
+                    <p>My phone number is:</p>
+                    <p>{this.state.phone}</p>
+                </div>
+                <div className="sixth Info">
+                    <p>My password is:</p>
+                    <p>{this.state.pw}</p>
+                </div>
+           </div>
+
+       )
     }
 }
 

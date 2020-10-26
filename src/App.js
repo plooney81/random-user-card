@@ -4,7 +4,7 @@ import UserCard from './components/UserCard';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="Card_Container">
         <UserCard />
       </header>
     </div>
