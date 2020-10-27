@@ -78,25 +78,28 @@ class UserCard extends Component {
                     <p>{this.state.address.number} {this.state.address.name}</p>
                 </div>
                )}
-                {this.state.display === 'address' && (
+                {this.state.display === 'phone' && (
                 <div className="fifth Info">
                     <p>My phone number is:</p>
                     <p>{this.state.phone}</p>
                 </div>
                )}
-                {this.state.display === 'address' && (
+                {this.state.display === 'password' && (
                 <div className="sixth Info">
                     <p>My password is:</p>
                     <p>{this.state.pw}</p>
                 </div>
                )}
                 <div className="buttons">
-                    <button onClick={this.getInfo('name')}>Name</button>
-                    <button onClick={this.getInfo('email')}>Email</button>
-                    <button onClick={this.getInfo('birthday')}>Birthday</button>
-                    <button onClick={this.getInfo('address')}>Address</button>
-                    <button onClick={this.getInfo('phone')}>Phone</button>
-                    <button onClick={this.getInfo('password')}>Password</button>
+                    {/* WHY DO WE HAVE TO DO THIS ? */}
+                    {/* By wrapping in the arrow, it will run on the onlick instead of running as its being definding. */}
+                    {/* Passing the reference instead of actually calling the function */}
+                    <button onClick={()=>{this.getInfo('name')}}>Name</button>
+                    <button onClick={()=>{this.getInfo('email')}}>Email</button>
+                    <button onClick={()=>{this.getInfo('birthday')}}>Birthday</button>
+                    <button onClick={()=>{this.getInfo('address')}}>Address</button>
+                    <button onClick={()=>{this.getInfo('phone')}}>Phone</button>
+                    <button onClick={()=>{this.getInfo('password')}}>Password</button>
                 </div>
             </div>
         )
